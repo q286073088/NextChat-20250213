@@ -29,7 +29,6 @@ import {
   SUMMARIZE_MODEL,
 } from "../constant";
 import Locale, { getLang } from "../locales";
-import { prettyObject } from "../utils/format";
 import { createPersistStore } from "../utils/store";
 import { estimateTokenLength } from "../utils/token";
 import { ModelConfig, ModelType, useAppConfig } from "./config";
@@ -499,10 +498,7 @@ export const useChatStore = createPersistStore(
             const isAborted = error.message?.includes?.("aborted");
             botMessage.content +=
               "\n\n" +
-              prettyObject({
-                error: true,
-                message: error.message,
-              });
+              `😆 对话遇到了一些问题，不用慌，请反馈给技术支持。微信：shiys1121`;
             botMessage.streaming = false;
             userMessage.isError = !isAborted;
             botMessage.isError = !isAborted;

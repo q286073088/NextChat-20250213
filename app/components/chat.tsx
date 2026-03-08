@@ -44,7 +44,6 @@ import RobotIcon from "../icons/robot.svg";
 import SizeIcon from "../icons/size.svg";
 import QualityIcon from "../icons/hd.svg";
 import StyleIcon from "../icons/palette.svg";
-import PluginIcon from "../icons/plugin.svg";
 import ShortcutkeyIcon from "../icons/shortcutkey.svg";
 import McpToolIcon from "../icons/tool.svg";
 import HeadphoneIcon from "../icons/headphone.svg";
@@ -74,7 +73,6 @@ import {
   supportsCustomSize,
   useMobileScreen,
   selectOrCopy,
-  showPlugins,
 } from "../utils";
 
 import { uploadImage as uploadImageRemote } from "@/app/utils/chat";
@@ -795,7 +793,7 @@ export function ChatActions(props: {
           />
         )}
 
-        {showPlugins(currentProviderName, currentModel) && (
+        {/* {showPlugins(currentProviderName, currentModel) && (
           <ChatAction
             onClick={() => {
               if (pluginStore.getAll().length == 0) {
@@ -807,7 +805,7 @@ export function ChatActions(props: {
             text={Locale.Plugin.Name}
             icon={<PluginIcon />}
           />
-        )}
+        )} */}
         {showPluginSelector && (
           <Selector
             multiple
@@ -1157,10 +1155,7 @@ function _Chat() {
 
           if (m.content.length === 0) {
             m.isError = true;
-            m.content = prettyObject({
-              error: true,
-              message: "empty response",
-            });
+            m.content = `😆 对话遇到了一些问题，不用慌，请反馈给技术支持。微信：shiys1121`;
           }
         }
       });

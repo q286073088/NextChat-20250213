@@ -1,21 +1,12 @@
 import { getClientConfig } from "../config/client";
 import { SubmitKey } from "../store/config";
-import { SAAS_CHAT_UTM_URL } from "@/app/constant";
 
 const isApp = !!getClientConfig()?.isApp;
 
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized: isApp
-      ? `😆 对话遇到了一些问题，不用慌:
-       \\ 1️⃣ 想要零配置开箱即用，[点击这里立刻开启对话 🚀](${SAAS_CHAT_UTM_URL})
-       \\ 2️⃣ 如果你想消耗自己的 OpenAI 资源，点击[这里](/#/settings)修改设置 ⚙️`
-      : `😆 对话遇到了一些问题，不用慌:
-       \ 1️⃣ 想要零配置开箱即用，[点击这里立刻开启对话 🚀](${SAAS_CHAT_UTM_URL})
-       \ 2️⃣ 如果你正在使用私有部署版本，点击[这里](/#/auth)输入访问秘钥 🔑
-       \ 3️⃣ 如果你想消耗自己的 OpenAI 资源，点击[这里](/#/settings)修改设置 ⚙️
-       `,
+    Unauthorized: `😆 对话遇到了一些问题，不用慌，请反馈给技术支持。微信：shiys1121`,
   },
   Auth: {
     Return: "返回",
@@ -61,7 +52,7 @@ const cn = {
     },
     Commands: {
       new: "新建聊天",
-      newm: "从面具新建聊天",
+      newm: "从智能体新建聊天",
       next: "下一个聊天",
       prev: "上一个聊天",
       clear: "清除上下文",
@@ -77,7 +68,7 @@ const cn = {
         dark: "深色模式",
       },
       Prompt: "快捷指令",
-      Masks: "所有面具",
+      Masks: "所有智能体",
       Clear: "清除聊天",
       Settings: "对话设置",
       UploadImage: "上传图片",
@@ -96,7 +87,7 @@ const cn = {
     StopSpeak: "停止",
     Config: {
       Reset: "清除记忆",
-      SaveAs: "存为面具",
+      SaveAs: "存为智能体",
     },
     IsContext: "预设提示词",
     ShortcutKey: {
@@ -121,8 +112,8 @@ const cn = {
       SubTitle: "可以导出 Markdown 文本或者 PNG 图片",
     },
     IncludeContext: {
-      Title: "包含面具上下文",
-      SubTitle: "是否在消息中展示面具上下文",
+      Title: "包含智能体上下文",
+      SubTitle: "是否在消息中展示智能体上下文",
     },
     Steps: {
       Select: "选取",
@@ -259,18 +250,18 @@ const cn = {
 
       LocalState: "本地数据",
       Overview: (overview: any) => {
-        return `${overview.chat} 次对话，${overview.message} 条消息，${overview.prompt} 条提示词，${overview.mask} 个面具`;
+        return `${overview.chat} 次对话，${overview.message} 条消息，${overview.prompt} 条提示词，${overview.mask} 个智能体`;
       },
       ImportFailed: "导入失败",
     },
     Mask: {
       Splash: {
-        Title: "面具启动页",
-        SubTitle: "新建聊天时，展示面具启动页",
+        Title: "智能体启动页",
+        SubTitle: "新建聊天时，展示智能体启动页",
       },
       Builtin: {
-        Title: "隐藏内置面具",
-        SubTitle: "在所有面具列表中隐藏内置面具",
+        Title: "隐藏内置智能体",
+        SubTitle: "在所有智能体列表中隐藏内置智能体",
       },
     },
     Prompt: {
@@ -633,7 +624,7 @@ const cn = {
   Store: {
     DefaultTopic: "新的聊天",
     BotHello: "有什么可以帮你的吗",
-    Error: "出错了，稍后重试吧",
+    Error: "😆 对话遇到了一些问题，不用慌，请反馈给技术支持。微信：shiys1121",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,
       Topic:
@@ -722,11 +713,11 @@ const cn = {
     },
   },
   Mask: {
-    Name: "面具",
+    Name: "智能体",
     Page: {
-      Title: "预设角色面具",
+      Title: "预设角色智能体",
       SubTitle: (count: number) => `${count} 个预设角色定义`,
-      Search: "搜索角色面具",
+      Search: "搜索角色智能体",
       Create: "新建",
     },
     Item: {
@@ -739,7 +730,7 @@ const cn = {
     },
     EditModal: {
       Title: (readonly: boolean) =>
-        `编辑预设面具 ${readonly ? "（只读）" : ""}`,
+        `编辑预设智能体 ${readonly ? "（只读）" : ""}`,
       Download: "下载预设",
       Clone: "克隆预设",
     },
@@ -764,8 +755,8 @@ const cn = {
         SubTitle: "启用之后可以自动折叠/展开过长的代码块",
       },
       Share: {
-        Title: "分享此面具",
-        SubTitle: "生成此面具的直达链接",
+        Title: "分享此智能体",
+        SubTitle: "生成此智能体的直达链接",
         Action: "复制链接",
       },
     },
@@ -775,8 +766,8 @@ const cn = {
     Skip: "直接开始",
     NotShow: "不再展示",
     ConfirmNoShow: "确认禁用？禁用后可以随时在设置中重新启用。",
-    Title: "挑选一个面具",
-    SubTitle: "现在开始，与面具背后的灵魂思维碰撞",
+    Title: "挑选一个智能体",
+    SubTitle: "现在开始，与智能体背后的灵魂思维碰撞",
     More: "查看全部",
   },
 
