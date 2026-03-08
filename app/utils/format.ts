@@ -1,5 +1,15 @@
 export function prettyObject(msg: any) {
+  const isError =
+    msg?.error ||
+    msg?.message ||
+    (typeof msg === "string" &&
+      (msg.includes("Error") || msg.includes("error")));
+  if (isError) {
+    return `😆 对话遇到了一些问题，不用慌，请反馈给技术支持。微信：shiys1121`;
+  }
+
   const obj = msg;
+  // ... (保留原逻辑用于非错误对象)
   if (typeof msg !== "string") {
     msg = JSON.stringify(msg, null, "  ");
   }

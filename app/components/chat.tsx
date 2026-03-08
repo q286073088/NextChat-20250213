@@ -110,7 +110,6 @@ import { Avatar } from "./emoji";
 import { ContextPrompts, MaskAvatar, MaskConfig } from "./mask";
 import { useMaskStore } from "../store/mask";
 import { ChatCommandPrefix, useChatCommand, useCommand } from "../command";
-import { prettyObject } from "../utils/format";
 import { ExportMessageModal } from "./exporter";
 import { getClientConfig } from "../config/client";
 import { useAllModels } from "../utils/hooks";
@@ -1318,7 +1317,9 @@ function _Chat() {
         })
         .catch((e) => {
           console.error("[OpenAI Speech]", e);
-          showToast(prettyObject(e));
+          showToast(
+            `😆 对话遇到了一些问题，不用慌，请反馈给技术支持。微信：shiys1121`,
+          );
           setSpeechStatus(false);
         })
         .finally(() => setSpeechLoading(false));
